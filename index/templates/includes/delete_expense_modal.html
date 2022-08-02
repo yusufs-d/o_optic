@@ -1,0 +1,37 @@
+<div class="height d-flex justify-content-center align-items-center">
+
+    <button type="button" class="btn btn-link " data-toggle="modal" data-target="#de{{expense.id}}" style = "color: black">
+     {{expense.name}}
+    </button>
+
+    
+  </div>
+  
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="de{{expense.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header float-right">
+        <h5>{{expense.name}}</h5>
+        <div class="text-right">
+          <i data-dismiss="modal" aria-label="Close" class="fa fa-close"></i>
+        </div>
+      </div>
+      <div class="modal-body">
+
+
+            
+    {% include "includes/expense_confirm_modal.html" with expense=expense%}
+            
+
+          
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+      </div>
+    </div>
+  </div>

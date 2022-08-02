@@ -1,0 +1,113 @@
+<div class="height d-flex justify-content-center align-items-center text-center">
+
+    <button type="button" class="btn btn-link" data-toggle="modal" data-target="#cl{{customer.id}}" style = "color:black;">
+        {{customer.lens_brand}}
+    </button>
+
+    
+  </div>
+  
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="cl{{customer.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header float-right">
+        <h5>Cam Detayları</h5>
+        <div class="text-right">
+          <i data-dismiss="modal" aria-label="Close" class="fa fa-close"></i>
+        </div>
+      </div>
+      <div class="modal-body">
+          
+
+
+        <div>
+          <h4>Uzak Gözlük</h4>
+          <table class="table table-bordered">
+  <thead>
+    <tr class = "table table-secondary">
+      <th scope="col"></th>
+      <th scope="col">Sferik</th>
+      <th scope="col">Silindir</th>
+      <th scope="col">Aks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Sağ</th>
+      <td>{{customer.lens_dist_sf_r}}</td>
+      <td>{{customer.lens_dist_si_r }}</td>
+      <td>{{customer.lens_dist_aks_r }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Sol</th>
+      <td>{{customer.lens_dist_sf_l }}</td>
+      <td>{{customer.lens_dist_si_l }}</td>
+      <td>{{customer.lens_dist_aks_l }}</td>
+    </tr>
+    
+  </tbody>
+</table>
+          <h4>Yakın Gözlük</h4>
+                    <table class="table table-bordered">
+  <thead>
+    <tr class = "table table-secondary">
+      <th scope="col"></th>
+      <th scope="col">Sferik</th>
+      <th scope="col">Silindir</th>
+      <th scope="col">Aks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Sağ</th>
+      <td>{{customer.lens_cl_sf_r }}</td>
+      <td>{{customer.lens_cl_si_r }}</td>
+      <td>{{customer.lens_cl_aks_r }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Sol</th>
+      <td>{{customer.lens_cl_sf_l }}</td>
+      <td>{{customer.lens_cl_si_l }}</td>
+      <td>{{customer.lens_cl_aks_l }}</td>
+    </tr>
+    
+  </tbody>
+</table>
+  <h4>Fiyat Bilgisi</h4>
+
+          <table class="table table-striped">
+  <thead>
+    <tr class = "table-secondary">
+      <th scope="col">Fiyat</th>
+      <th scope="col">Alınan</th>
+      <th scope="col">Kalan</th>
+      <th scope="col">Ödeme Yöntemi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr >
+      <td>{{customer.lens_price}}</td>
+      <td>{{customer.lens_income}}</td>
+      <td>{{customer.lens_remain}}</td>
+      <td>{{customer.lens_payment_method}}</td>
+   
+    </tr>
+    
+    
+  </tbody>
+</table>
+
+
+
+        </div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+      </div>
+    </div>
+  </div>

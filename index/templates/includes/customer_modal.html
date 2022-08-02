@@ -1,0 +1,38 @@
+<div class="height d-flex justify-content-center align-items-center">
+
+    <button type="button" class="btn btn-link " data-toggle="modal" data-target="#cc{{customer.id}}" style = "color: black">
+     {{customer.name}}
+    </button>
+
+    
+  </div>
+  
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="cc{{customer.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header float-right">
+        <h5>{{customer.name}}</h5>
+        <div class="text-right">
+          <i data-dismiss="modal" aria-label="Close" class="fa fa-close"></i>
+        </div>
+      </div>
+      <div class="modal-body">
+
+
+            <div class = "text-center">
+              <a href="/edit-customer/{{customer.id}}/" class = "btn btn-warning"><i class="bi bi-pencil-square"></i> Düzenle</a>
+              {% include "includes/confirm_modal.html" with customer=customer%}
+            </div>
+
+          
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+      </div>
+    </div>
+  </div>

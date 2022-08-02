@@ -1,0 +1,36 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-danger mb-3" data-toggle="modal" data-target="#ae{{customer.id}}">
+    <i class="bi bi-cart-dash-fill"></i> 
+    Gider Ekle
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="ae{{customer.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Gider Ekle</h5>
+      </div>
+      <div class="modal-body">
+        <form method = "post" action="/add-expense/">
+        {% csrf_token %}
+        <label for="exampleFormControlInput1" class="form-label">Gider İsmi</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" name = "expense_name" placeholder="Gider İsmi" required>
+        <label for="exampleFormControlInput1" class="form-label mt-2">Gider Tutarı</label>
+        <div class="input-group mt-1 ">
+        <input type="number" step = "any"  class="form-control" name = "expense_amount" placeholder="Tutar">
+        <select class="form-select" aria-label="Default select example" name = "expense_payment_method">
+        <option selected>Ödeme Yöntemi</option>
+        <option value="Nakit">Nakit</option>
+        <option value="Kart">Kart</option>
+        </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+        <button type="submit" class="btn btn-danger">Kaydet</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
