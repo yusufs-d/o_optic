@@ -50,7 +50,7 @@ def index(request):
         "user" : str(request.user)
     }
 
-    return render(request,"AdminLTE/index.html",variables)
+    return render(request,"index.html",variables)
 
 @staff_member_required(login_url="")
 def customer(request):
@@ -59,7 +59,7 @@ def customer(request):
     else:
         customers =Customer.objects.all()
 
-    return render(request,"AdminLTE/customer.html",{"customers":customers})
+    return render(request,"customer.html",{"customers":customers})
 
 @staff_member_required(login_url="")
 def add_customer(request):
@@ -189,7 +189,7 @@ def add_customer(request):
         messages.success(request,"Müşteri Başarıyla Kaydedildi")
         return redirect(customer)
 
-    return render(request, "AdminLTE/add_customer.html")
+    return render(request, "add_customer.html")
 
 
 @staff_member_required(login_url="")
@@ -308,7 +308,7 @@ def edit_customer(request,id):
         customer.save()
         messages.success(request,"Müşteri Başarıyla Güncellendi")
         return redirect("customer")
-    return render(request,"AdminLTE/edit_customer.html",{"customer":customer})
+    return render(request,"edit_customer.html",{"customer":customer})
 
 @staff_member_required(login_url="")
 def debts(request):
@@ -316,7 +316,7 @@ def debts(request):
         customers =Customer_2.objects.all()
     else:
         customers =Customer.objects.all()
-    return render(request,"AdminLTE/debts.html",{"customers":customers})
+    return render(request,"debts.html",{"customers":customers})
 
 @staff_member_required()
 def income(request):
@@ -392,7 +392,7 @@ def income(request):
                 "daily_expense":daily_expense,
                 "incomes": all_incomes
           }
-    return render(request,"AdminLTE/income.html",variables)
+    return render(request,"income.html",variables)
 
 @staff_member_required(login_url="")
 def add_expense(request):

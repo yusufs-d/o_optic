@@ -1,0 +1,114 @@
+{% extends "layout.html"%}
+{%load static%}
+
+    {% block  main_content%}
+    {% if user == "mali" %}
+        <title>Ortaköy Optik 2 | Anasayfa</title>
+
+    {% else %}
+        <title>Ortaköy Optik | Anasayfa</title>
+
+    {% endif %}
+    <link rel="stylesheet" href="{%static 'css/todo.css' %}">
+
+    
+    
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <label for="checkbox" class = "mt-2">Bilgileri Göster/Gizle</label>
+        <input type="checkbox" id="myCheck" onclick="myFunction()">
+
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+        
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3 id = "text1" style="display:none">{{customer_count}}</h3>
+
+                <p>Müşteri Sayısı</p>
+              </div>
+              <div class="icon">
+                <i class="ion bi-people-fill"></i>
+              </div>
+              <a href="/customer" class="small-box-footer">Daha fazla bilgi <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3 id = "text2" style="display:none">{{daily_income}}₺</h3>
+                <p>Günlük Gelir</p>
+              </div>
+              <div class="icon">
+                <i class="ion bi-cash"></i>
+              </div>
+              <a href="/income" class="small-box-footer">Daha fazla bilgi <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3 id = "text3" style="display:none">{{total_income}}₺</h3>
+
+                <p>Toplam Gelir</p>
+              </div>
+              <div class="icon">
+                <i class="ion bi-cash-stack"></i>
+              </div>
+              <a href="/income" class="small-box-footer">Daha fazla bilgi <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3 id = "text4" style="display:none">{{total_expense}}₺</h3>
+
+                <p>Toplam Gider</p>
+              </div>
+              <div class="icon">
+                <i class="ion bi-cart-dash-fill"></i>
+              </div>
+              <a href="/income" class="small-box-footer">Daha fazla bilgi <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+        </div>
+        <!-- /.row -->
+        <!-- Main row -->
+        <h2 class = "text-center mt-3"><i class="bi bi-tag-fill"></i> Fiyat Bilgisi</h2> <hr>
+
+  <div class="row" style = "height:500px;">
+    <div class="col">
+
+      <iframe width="100%" height="300" frameborder="2" scrolling="no" src="https://atilim-my.sharepoint.com/personal/demir_yusufsalih_student_atilim_edu_tr/_layouts/15/Doc.aspx?sourcedoc={a1101476-3578-43ee-adaa-bdaeef58962f}&action=embedview&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True&wdInConfigurator=True&edesNext=false&ejss=false"></iframe>
+    </div>
+    <div class="col">
+      <iframe width="100%" height="300" frameborder="2" scrolling="no" src="https://atilim-my.sharepoint.com/personal/demir_yusufsalih_student_atilim_edu_tr/_layouts/15/Doc.aspx?sourcedoc={a1101476-3578-43ee-adaa-bdaeef58962f}&action=embedview&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True&wdInConfigurator=True&edesNext=false&ejss=false"></iframe>
+    </div>
+  
+  </div>
+      
+<footer class="bg-light text-center text-lg-start">
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2022 Copyright:
+    <a class="text-dark" href="https://yusufsd.pythonanywhere.com/">yusufsalihdemir.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>            
+  {% endblock  %}
+  
+
+
+
+
+

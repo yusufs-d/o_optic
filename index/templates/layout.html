@@ -1,0 +1,341 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Favicon -->
+  <link rel="icon" href="https://icon-library.com/images/glasses-icon-png/glasses-icon-png-2.jpg" type="image/x-icon" />
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css'%}">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="{% static 'plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css'%}">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="{% static 'plugins/icheck-bootstrap/icheck-bootstrap.min.css'%}">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="{% static 'plugins/jqvmap/jqvmap.min.css'%}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css'%}">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="{% static 'plugins/overlayScrollbars/css/OverlayScrollbars.min.css'%}">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="{% static 'plugins/daterangepicker/daterangepicker.css'%}">
+  <!-- summernote -->
+  <link rel="stylesheet" href="{% static 'plugins/summernote/summernote-bs4.min.css'%}">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="{% static 'plugins/datatables-bs4/css/dataTables.bootstrap4.min.css'%} ">
+  <link rel="stylesheet" href="{% static 'plugins/datatables-responsive/css/responsive.bootstrap4.min.css' %}">
+  <link rel="stylesheet" href="{% static 'plugins/datatables-buttons/css/buttons.bootstrap4.min.css'%}">
+
+  
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+  <!-- Preloader -->
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="{% static 'dist/img/AdminLTELogo.png'%}" alt="AdminLTELogo%}" height="60" width="60">
+  </div>
+
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="/homepage" class="nav-link">Anasayfa</a>
+      </li>
+  
+    </ul>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+     
+      <li class="nav-item">
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <i class="fas fa-expand-arrows-alt"></i>
+        </a>
+      </li>
+     
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="/homepage/" class="brand-link">
+      <img src="{% static 'dist/img/o.png' %}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      {% if user == "mali" %}
+            <span class="brand-text font-weight-light">Ortaköy Optik 2</span>
+
+      {% else %}
+            <span class="brand-text font-weight-light">Ortaköy Optik</span>
+
+      {% endif %}
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-1 mb-3 d-flex">
+        <div class="image">
+          <h3><i class="bi bi-person-circle text-light"></i></h3>
+        </div>
+        <div class="info">
+          <a  class="d-block">{{request.user}}</a>
+        </div>
+      </div>
+
+ 
+
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <!-- Tree Link 
+          
+             <a href="#" class="nav-link">
+              <i class="nav-icon far fa-envelope"></i>
+              <p>
+                Mailbox
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="pages/mailbox/mailbox.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Inbox</p>
+                </a>
+       
+          /Tree Link -->
+          <li class="nav-item">
+            <a href="/customer" class="nav-link">
+            <i class="nav-icon bi bi-people-fill "></i>
+            <p class = "ml-2">Müşteriler</p>
+            </a>
+          </li>
+
+            <li class="nav-item">
+            <a href="/debts" class="nav-link">
+            <i class="nav-icon bi bi-credit-card-2-front-fill"></i>
+            <p class = "ml-2">Veresiye</p>
+            </a>
+
+          </li>
+            <li class="nav-item">
+            <a href="/income" class="nav-link">
+           <i class="nav-icon bi bi-cash-stack"></i>
+            <p class = "ml-2">Gelir</p>
+            </a>
+          </li>
+
+          </li>
+            <li class="nav-item">
+            <a href="/logout" class="nav-link">
+           <i class="bi bi-box-arrow-right"></i>
+            <p class = "ml-2">Çıkış Yap</p>
+            </a>
+          </li>
+
+              
+              
+              
+              
+              
+              
+             
+      
+         
+          
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    
+    <!-- /.content-header -->
+    {% if messages %}
+        {% for message in messages %}
+            {%if message.tags == "error" %}
+                <div  class="alert alert-danger"><i class="bi bi-x-circle-fill"></i> {{ message }} </div>
+            {%else%}
+                <div  class="alert alert-{{message.tags}}"><i class="bi bi-check-circle-fill"></i> {{ message }} </div>
+
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    {% block  main_content%}
+ 
+  {% endblock  %}
+  <!-- /.content-wrapper -->
+
+
+  <!-- Control Sidebar -->
+  
+  <!-- /.control-sidebar -->
+</div>
+
+<!-- ./wrapper -->
+
+
+
+
+
+<!-- jQuery --> 
+<script src="{% static 'plugins/jquery/jquery.min.js'%}"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src=" {% static 'plugins/jquery-ui/jquery-ui.min.js'%}"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<script src="{%static 'plugins/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+<!-- ChartJS -->
+<script src="{% static 'plugins/chart.js/Chart.min.js'%}"></script>
+<!-- Sparkline -->
+<script src="{% static 'plugins/sparklines/sparkline.js'%}"></script>
+<!-- JQVMap -->
+<script src="{% static 'plugins/jqvmap/jquery.vmap.min.js' %}"></script>
+<script src="{% static 'plugins/jqvmap/maps/jquery.vmap.usa.js' %}"></script>
+<!-- jQuery Knob Chart -->
+<script src="{% static 'plugins/jquery-knob/jquery.knob.min.js' %}"></script>
+<!-- daterangepicker -->
+<script src="{% static 'plugins/moment/moment.min.js' %}"></script>
+<script src="{% static 'plugins/daterangepicker/daterangepicker.js' %}"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="{% static 'plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js' %}"></script>
+<!-- Summernote -->
+<script src="{% static 'plugins/summernote/summernote-bs4.min.js' %}"></script>
+<!-- overlayScrollbars -->
+<script src="{% static 'plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js' %}"></script>
+<!-- AdminLTE App -->
+<script src="{% static 'dist/js/adminlte.js' %}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{% static 'dist/js/demo.js%'}"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+
+<script src="{% static 'dist/js/pages/dashboard.js' %}"></script>
+<!-- DataTables  & Plugins -->
+<script src="{% static 'plugins/datatables/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'plugins/datatables-bs4/js/dataTables.bootstrap4.min.js' %}"></script>
+<script src="{% static 'plugins/datatables-responsive/js/dataTables.responsive.min.js' %}"></script>
+<script src="{% static 'plugins/datatables-responsive/js/responsive.bootstrap4.min.js' %}"></script>
+<script src="{% static 'plugins/datatables-buttons/js/dataTables.buttons.min.js' %}"></script>
+<script src="{% static 'plugins/datatables-buttons/js/buttons.bootstrap4.min.js' %}"></script>
+<script src="{% static 'plugins/jszip/jszip.min.js' %}"></script>
+<script src="{% static 'plugins/pdfmake/pdfmake.min.js' %}"></script>
+<script src="{% static 'plugins/pdfmake/vfs_fonts.js' %}"></script>
+<script src="{% static 'plugins/datatables-buttons/js/buttons.html5.min.js' %}"></script>
+<script src="{% static 'plugins/datatables-buttons/js/buttons.print.min.js' %}"></script>
+<script src="{% static 'plugins/datatables-buttons/js/buttons.colVis.min.js' %}"></script>
+<!-- For Table -->
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+      
+    });
+  });
+
+
+</script>
+
+<!-- For select input -->
+<script type="text/javascript">
+function showfield(name){
+  if(name=='Other')document.getElementById('div1').innerHTML='<div class = "mt-3"><b>Diğer:<b/></div> <input type="text" class = "mt-2 w-25 form-control" name="other" placeholder="Marka""/>';
+  else document.getElementById('div1').innerHTML='';
+}
+</script>
+
+<script>
+
+$(document).ready(function () {
+    $('#dtBasicExample2').DataTable({
+        "language": {
+          "sSearch": "Ara:",
+          "lengthMenu": "Her sayfada _MENU_ kayıt göster",
+          "zeroRecords": "Kayıt bulunamadı",
+          "info": "_TOTAL_ kayıt bulundu. _START_-_END_ arası kayıtlar gösteriliyor",
+          "infoEmpty": "Kayıt bulunamadı.",
+          "infoFiltered": "(filtered from _MAX_ total records)",
+          "paginate": {
+            "first": "İlk",
+            "last": "Son",
+            "next": "Sonraki",
+            "previous": "Önceki"
+          }
+        }
+
+
+
+    });
+    $('.dataTables_length').addClass('bs-select');
+  });
+</script>
+
+<script>
+function myFunction() {
+  // Get the checkbox
+  var checkBox = document.getElementById("myCheck");
+  // Get the output text
+  var text1 = document.getElementById("text1");
+  var text2 = document.getElementById("text2");
+  var text3 = document.getElementById("text3");
+  var text4 = document.getElementById("text4");
+
+
+  // If the checkbox is checked, display the output text
+  if (checkBox.checked == true){
+    text1.style.display = "block";
+    text2.style.display = "block";
+    text3.style.display = "block";
+    text4.style.display = "block";
+
+  } else {
+    text1.style.display = "none";
+    text2.style.display = "none";
+    text3.style.display = "none";
+    text4.style.display = "none";
+
+  }
+}
+
+</script>
+
+<script>
+/**
+ * Bootstrap Table Turkish translation
+ * Author: Emin Şen
+ * Author: Sercan Cakir <srcnckr@gmail.com>
+ */
+
+
+
+</body>
+</html>

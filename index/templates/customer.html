@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+{%load static%}
+
+{% block main_content %}
+
+<title>Müşteriler</title>
+
+<!-- Main content -->
+    <section class="content">
+
+      <div class="container-fluid">
+        <h2 class="m-0">Müşteriler</h2>
+        <a href="/add-customer/" class = "btn btn-warning mt-3 mb-3">
+          <i class="bi bi-person-plus-fill"></i> Müşteri Ekle
+        </a>
+        
+
+
+  <table id="dtBasicExample2" class="table table-striped table-bordered text-center" cellspacing="0" width="100%" >
+  <thead>
+<tr>
+<th>Ad-Soyad</th>
+<th>Telefon</th>
+<th>Tarih</th>
+<th>Çerçeve Bilgileri</th>
+<th>Cam Bilgileri</th>
+</tr>
+</thead>
+<tbody>
+{% for customer in customers %}
+<tr>
+<td>{% include "includes/customer_modal.html" with customer=customer%}</td>
+<td>{{customer.phone}}</td>
+<td>{{customer.date}}</td>
+<td>
+{% if customer.frame_brand != ""%}
+{% include "includes/frame_modal.html" with customer=customer%}
+{% else %}
+<p class = "text-center"><i class="bi bi-x"></i></p>
+{% endif %}
+</td>
+<td>
+{% if customer.lens_brand != ""%}
+{% include "includes/lens_modal.html" with customer=customer%}
+{% else %}
+<p class = "text-center"><i class="bi bi-x"></i></p>
+{% endif %}
+</td>
+</tr>
+{% endfor %}
+
+
+
+</tbody>
+</table>
+
+
+{% endblock  %}
+    
+
+
+
+
+
+
+
