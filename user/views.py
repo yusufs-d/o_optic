@@ -18,7 +18,7 @@ def loginUser(request):
             login(request,aut)
             return redirect("index")
 
-    return render(request,"/Users/yusufs/Desktop/optic/index/templates/AdminLTE/pages/examples/login.html")
+    return render(request,"/Users/yusufs/Desktop/optic/index/templates/AdminLTE/login.html")
 
 
 
