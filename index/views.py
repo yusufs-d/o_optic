@@ -347,6 +347,10 @@ def income(request):
         else:
             inc_dates = Income.objects.get_or_create(date = d)
 
+    if str(request.user) == "mali":
+        last_income = Income_2.objects.all().last()
+    else:
+        last_income = Income.objects.all().last()
 
 
     for expense in expenses:
@@ -356,23 +360,20 @@ def income(request):
     if len(dates)>0:
         if(now_date[:10] == dates[-1] ):
             if str(request.user) == "mali":
-                inc = get_object_or_404(Income_2,date=dates[-1])
+                inc = Income_2.objects.get(date=dates[-1])
             else:
-                inc = get_object_or_404(Income,date=dates[-1])
-            inc.income_amount = daily_income-(-1*daily_expense)
+                inc = Income.objects.get(date=dates[-1])
+            inc.income_amount = daily_income+daily_expense
             inc.save()
+        
     else:
         if str(request.user) == "mali":
-            inc = get_object_or_404(Income_2,date=now_date[:10])
+                inc = Income_2.objects.get(date=now_date[:10])
         else:
-            inc = get_object_or_404(Income,date=now_date[:10])
+                inc = Income.objects.get(date=now_date[:10])
 
         inc.income_amount = daily_expense
         inc.save()
-
-
-
-        
 
 
     if str(request.user) == "mali":
@@ -380,18 +381,14 @@ def income(request):
     else:
         all_incomes = Income.objects.all()
 
-
-
-        
-
-
     variables = {"customers":customers,
                 "now":now_date,
                 "daily_income":daily_income,
                 "expenses":expenses,
                 "daily_expense":daily_expense,
-                "incomes": all_incomes
-          }
+                "incomes": all_incomes,
+                "user" : str(request.user)
+    }
     return render(request,"income.html",variables)
 
 @staff_member_required(login_url="")
